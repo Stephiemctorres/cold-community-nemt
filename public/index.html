@@ -1,0 +1,705 @@
+<!-- A fully fleshed-out <head>, dynamically changing based on client.json and the page front matter -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Standard meta tags -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Meta description for the page">
+        <link rel="canonical" href="https://www.coldcommunitynemt.com/">
+        <meta name="generator" content="Eleventy v3.1.2">
+
+        <!--Social Media Display-->
+        <meta property="og:title" content="Pixel Perfect Websites | Code Stitch Web Designs | Denver, CO"/>
+        <meta property="og:description" content="Meta description for the page"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.coldcommunitynemt.com/"/>
+        <meta property="og:image" content="/assets/images/logo-small.png"/>
+        <meta property="og:image:secure_url" content="/assets/images/logo-small.png"/>
+
+        <!--Favicons-->
+        <!-- https://realfavicongenerator.net/ -->
+        <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96"/>
+        <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg"/>
+        <link rel="shortcut icon" href="/assets/favicons/favicon.ico"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"/>
+        <meta name="apple-mobile-web-app-title" content="Starter Kit"/>
+        <link rel="manifest" href="/assets/favicons/site.webmanifest"/>
+
+        <!-- Preloads -->
+        <link rel="preload" as="image" href="/assets/svgs/logo-black.svg">
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
+        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
+
+        <!-- Sitewide Stylesheets and Scripts -->
+        <link rel="stylesheet" href="/assets/css/root.css">
+        <script defer src="/assets/js/dark.js"></script>
+        <script defer src="/assets/js/nav.js"></script>
+
+        
+    <!-- Critical styles are loaded first -->
+    <link rel="stylesheet" href="/assets/css/critical.css" />
+
+    <!-- If we're in production, defer the rest of the home page styles. In development, always load it. Otherwise the site will break when hot-reload is used. -->
+    
+        <link rel="stylesheet" href="/assets/css/local.css" />
+    
+
+    <!-- To ensure proper validation, prevent errors, and encourage developers to check, schema's are an opt-in feature. They're very bespoke and requires some customising  -->
+    <!-- Uncomment the code below to enable Structured Data, and test it when you deploy to Netlify - https://developers.google.com/search/docs/appearance/structured-data -->
+    <!-- <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
+        "name": "COLD Community NEMT",
+        
+        "telephone": "(334) 520-4179",
+        "email": "dispatch@coldcommunitynemt.com",
+        
+            "address": {
+                "@type": "PostalAddress",
+                    "streetAddress": "Serving Phenix City &amp; Surrounding Areas, Lee · Russell · Macon · Chambers &amp; More",
+                    "addressLocality": "Phenix City",
+                    "addressRegion": "AL",
+                    "addressCountry": "US"},
+        
+        "url": "https://www.coldcommunitynemt.com/",
+        
+            "sameAs": ["https://www.facebook.com/","https://www.instagram.com/"]
+        
+    }
+</script> -->
+
+
+        <title>Pixel Perfect Websites | Code Stitch Web Designs | Denver, CO</title>
+    </head>
+    <body>
+        <!--Screen reader skip main nav-->
+        <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+
+        <!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
+
+<header id="cs-navigation">
+    <div class="cs-container">
+        <!--Nav Logo-->
+        <a href="/" class="cs-logo" aria-label="Company Name Home page">
+            <img src="/assets/svgs/logo-black.svg" alt="" width="210" height="29" aria-hidden="true" decoding="async">
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" aria-label="main navigation">
+            <!--Mobile Nav Toggle-->
+            <button class="cs-toggle" id="cs-toggle" aria-expanded="false" aria-controls="cs-ul-wrapper" aria-label="mobile menu toggle" aria-haspopup="menu">
+                <span class="cs-box" aria-hidden="true">
+                    <span class="cs-line cs-line1" aria-hidden="true"></span>
+                    <span class="cs-line cs-line2" aria-hidden="true"></span>
+                    <span class="cs-line cs-line3" aria-hidden="true"></span>
+                </span>
+            </button>
+            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how many there are-->
+            <div class="cs-ul-wrapper" id="cs-ul-wrapper" inert>
+                <ul id="cs-expanded" class="cs-ul">
+                    <li class="cs-li">
+                        <a href="/" class="cs-li-link  cs-active "  aria-current="page" >
+                            Home
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="/about/" class="cs-li-link " >
+                            About
+                        </a>
+                    </li>
+                    <!-- Note: When copying this dropdown, update the id attribute with an appropriate name (e.g., "services-dropdown-toggle", "products-dropdown-toggle") and ensure the aria-labelledby attribute on the ul matches the button's id -->
+                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+                    <li class="cs-li cs-dropdown">
+                        <button class="cs-li-link cs-dropdown-toggle " aria-haspopup="menu" aria-expanded="false" id="projects-dropdown-toggle">
+                            Projects
+                            <img class="cs-drop-icon" src="/assets/svgs/dropdown.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
+                        </button>
+                        <ul class="cs-drop-ul" aria-labelledby="projects-dropdown-toggle">
+                            <li class="cs-drop-li">
+                                <a href="/project-one/" class="cs-li-link cs-drop-link">Project One</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="/project-two/" class="cs-li-link cs-drop-link">Project Two</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-li">
+                        <a href="/reviews/" class="cs-li-link " >
+                            Reviews
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="/blog/" class="cs-li-link " >
+                            Blog
+                        </a>
+                    </li>
+                    <li class="cs-li cs-hide-on-desktop">
+                        <a href="/contact/" class="cs-li-link " >
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <a href="/contact/" class="cs-button-solid cs-nav-button">Contact Us</a>
+        <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+        <button id="dark-mode-toggle" aria-label="dark mode toggle" aria-pressed="false">
+            <img class="cs-moon" aria-hidden="true" src="/assets/svgs/moon.svg" decoding="async" alt="" width="15" height="15">
+            <img class="cs-sun" aria-hidden="true" src="/assets/svgs/sun.svg" decoding="async" alt="" width="15" height="15">
+        </button>
+    </div>
+</header>
+        <main id="main">
+            
+
+    <!-- ============================================ -->
+    <!--                    Hero                      -->
+    <!-- ============================================ -->
+
+    <section id="hero-143">
+        <div class="cs-container">
+            <span class="cs-topper">CodeStitch Presents</span>
+            <h1 class="cs-title">
+                The Intermediate Website Kit (SASS)
+            </h1>
+            <p class="cs-text">
+                Building faster websites, faster. Just clone, update _data/client.js, swap out some sections, and away you go!
+            </p>
+            <a href="/contact/" class="cs-button-solid">Get in Touch</a>
+        </div>
+
+        <!-- Background Image -->
+        <picture class="cs-background">
+            <!--Mobile Image-->
+            <source media="(max-width: 600px)" srcset="/assets/images/landing-16e1b12c.avif" type="image/avif">
+            <source media="(max-width: 600px)" srcset="/assets/images/landing-083d4f0f.webp" type="image/webp">
+            <source media="(max-width: 600px)" srcset="/assets/images/landing-74f800f6.jpeg" type="image/jpeg">
+            <!--Tablet Image-->
+            <source media="(max-width: 1024px)" srcset="/assets/images/landing-6708d3eb.avif" type="image/avif">
+            <source media="(max-width: 1024px)" srcset="/assets/images/landing-a21ca74c.webp" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="/assets/images/landing-e6f46e9a.jpeg" type="image/jpeg">
+            <!--Large Tablet Image-->
+            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="/assets/images/landing-6708d3eb.avif" type="image/avif">
+            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="/assets/images/landing-a21ca74c.webp" type="image/webp">
+            <source media="(min-width: 1024px) and (max-width: 1300px)" srcset="/assets/images/landing-e6f46e9a.jpeg" type="image/jpeg">
+            <!--Desktop Image-->
+            <source media="(min-width: 1300px)" srcset="/assets/images/landing-b76bc803.avif" type="image/avif">
+            <source media="(min-width: 1300px)" srcset="/assets/images/landing-947942bc.webp" type="image/webp">
+            <source media="(min-width: 1300px)" srcset="/assets/images/landing-f12cca9e.jpeg" type="image/jpeg">
+            <img src="/assets/images/landing-f12cca9e.jpeg" alt="kitchen" width="1" height="1" loading="eager" decoding="async">
+        </picture>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Services                   -->
+    <!-- ============================================ -->
+
+    <section id="h-services-143">
+        <ul class="cs-card-group">
+            <li class="cs-item">
+                <picture class="cs-icon">
+                    <img loading="lazy" decoding="async" src="/assets/svgs/s1.svg" alt="icon" width="52" height="52" aria-hidden="true">
+                </picture>
+                <h2 class="cs-title">
+                    Full Kitchen Remodel
+                </h2>
+                <p class="cs-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-icon">
+                    <img loading="lazy" decoding="async" src="/assets/svgs/s2.svg" alt="icon" width="52" height="52" aria-hidden="true">
+                </picture>
+                <h2 class="cs-title">
+                    Exterior Repairs
+                </h2>
+                <p class="cs-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-icon">
+                    <img loading="lazy" decoding="async" src="/assets/svgs/s3.svg" alt="icon" width="52" height="52" aria-hidden="true">
+                </picture>
+                <h2 class="cs-title">
+                    Utility Maintenance
+                </h2>
+                <p class="cs-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </li>
+            <li class="cs-item">
+                <picture class="cs-icon">
+                    <img loading="lazy" decoding="async" src="/assets/svgs/s4.svg" alt="icon" width="52" height="52" aria-hidden="true">
+                </picture>
+                <h2 class="cs-title">
+                    Design Consultation
+                </h2>
+                <p class="cs-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                 Side By Side                 -->
+    <!-- ============================================ -->
+
+    <section id="RPsbs-313">
+        <div class="cs-container">
+            <!-- Left Image Section -->
+            <div class="cs-image-group">
+                <picture class="cs-picture cs-picture1">
+                    <!--Mobile Image-->
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-4e7b582a.avif" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-80475dae.webp" type="image/webp">
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-7e211651.jpeg" type="image/jpeg">
+                    <!--Tablet Image-->
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-9a4c511f.avif" type="image/avif">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-dd5a60ae.webp" type="image/webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-2e83972b.jpeg" type="image/jpeg">
+                    <!--Desktop Image-->
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-fd984fd2.avif" type="image/avif">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-5208b718.webp" type="image/webp">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-99d0bfc7.jpeg" type="image/jpeg">
+                    <img src="/assets/images/cabinets-99d0bfc7.jpeg" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
+                </picture>
+                <picture class="cs-picture cs-picture2">
+                    <!--Mobile Image-->
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-0c07dba3.avif" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-055768cd.webp" type="image/webp">
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-ef4c19a1.jpeg" type="image/jpeg">
+                    <!--Tablet Image-->
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-dbf57d35.avif" type="image/avif">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-47d7fc88.webp" type="image/webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-9d514a70.jpeg" type="image/jpeg">
+                    <!--Desktop Image-->
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-8b85caae.avif" type="image/avif">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-85f8ec91.webp" type="image/webp">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-fae25193.jpeg" type="image/jpeg">
+                    <img src="/assets/images/construction-fae25193.jpeg" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <!-- Right Content Section-->
+            <div class="cs-content">
+                <span class="cs-topper">About Us</span>
+                <h2 class="cs-title">
+                    About Stitch Law
+                </h2>
+                <p class="cs-text">
+                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                </p>
+                <div class="cs-quote">
+                    <span class="cs-quote-text">
+                        In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
+                    </span>
+                    <span class="cs-name">Justin Time</span>
+                    <span class="cs-job">CEO-Founder</span>
+                    <img class="cs-quote-icon" loading="lazy" decoding="async" src="/assets/svgs/quote.svg" alt="gavel" width="136" height="77">
+                </div>
+                <a href="/about/" class="cs-button-solid">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--             Side By Side Reverse             -->
+    <!-- ============================================ -->
+
+    <section id="RPsbsr-313">
+        <div class="cs-container">
+            <!-- Left Image Section -->
+            <div class="cs-image-group">
+                <picture class="cs-picture cs-picture1">
+                    <!--Mobile Image-->
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-4e7b582a.avif" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-80475dae.webp" type="image/webp">
+                    <source media="(max-width: 600px)" srcset="/assets/images/cabinets-7e211651.jpeg" type="image/jpeg">
+                    <!--Tablet Image-->
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-9a4c511f.avif" type="image/avif">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-dd5a60ae.webp" type="image/webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-2e83972b.jpeg" type="image/jpeg">
+                    <!--Desktop Image-->
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-fd984fd2.avif" type="image/avif">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-5208b718.webp" type="image/webp">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-99d0bfc7.jpeg" type="image/jpeg">
+                    <img src="/assets/images/cabinets-99d0bfc7.jpeg" alt="lawyers" width="522" height="581" loading="lazy" decoding="async">
+                </picture>
+                <picture class="cs-picture cs-picture2">
+                    <!--Mobile Image-->
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-0c07dba3.avif" type="image/avif">
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-055768cd.webp" type="image/webp">
+                    <source media="(max-width: 600px)" srcset="/assets/images/construction-ef4c19a1.jpeg" type="image/jpeg">
+                    <!--Tablet Image-->
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-dbf57d35.avif" type="image/avif">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-47d7fc88.webp" type="image/webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/images/construction-9d514a70.jpeg" type="image/jpeg">
+                    <!--Desktop Image-->
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-8b85caae.avif" type="image/avif">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-85f8ec91.webp" type="image/webp">
+                    <source media="(min-width: 1024px)" srcset="/assets/images/construction-fae25193.jpeg" type="image/jpeg">
+                    <img src="/assets/images/construction-fae25193.jpeg" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
+                </picture>
+            </div>
+            <!-- Right Content Section-->
+            <div class="cs-content">
+                <span class="cs-topper">About Us</span>
+                <h2 class="cs-title">
+                    About Stitch Law
+                </h2>
+                <p class="cs-text">
+                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                </p>
+                <p class="cs-text">
+                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                </p>
+                <p class="cs-text">
+                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
+                </p>
+                <a href="/about/" class="cs-button-solid">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Gallery                    -->
+    <!-- ============================================ -->
+
+    <section id="gallery-48">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Our Portfolio</span>
+                <h2 class="cs-title">
+                    Et orci volutpat, back up generator installations
+                </h2>
+            </div>
+            <div class="cs-image-group">
+                <div class="cs-row cs-row-1">
+                    <!-- Row 1-->
+                    <picture class="cs-picture cs-picture-1">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port1-600ae862.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port1-c5e0f0ca.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port1-49a22156.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port1-5728600e.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port1-9a20f48b.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port1-0dfd77d1.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port1-aa49523c.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port1-2119d4ed.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port1-33b58b3d.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port1-33b58b3d.jpeg" alt="new hallway" width="413" height="567" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-picture cs-picture-2">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port4-97642802.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port4-f012e60d.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port4-7a6d42c9.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port4-f5d0a1ef.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port4-cae957ea.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port4-c9eabc0b.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port4-4ddab3d4.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port4-2f89ff62.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port4-8caa0e39.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port4-8caa0e39.jpeg" alt="new home construction" width="413" height="629" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-picture cs-picture-3">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port7-c8db74fb.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port7-d0e54fa0.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port7-177477df.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port7-fe0de0ce.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port7-c2b8eb8d.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port7-a5280509.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port7-377f997d.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port7-b98386a8.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port7-df4b7a41.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port7-df4b7a41.jpeg" alt="building a new wall" width="413" height="512" loading="lazy" decoding="async">
+                    </picture>
+                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                </div>
+                <!-- Row 2 -->
+                <div class="cs-row cs-row-2">
+                    <picture class="cs-picture cs-picture-1">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port2-cd60769f.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port2-0c6b394c.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port2-5ca681a6.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port2-302b1ea6.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port2-8d57f24b.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port2-c6976b22.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port2-0dee356f.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port2-6ecbeca5.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port2-8ea236e7.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port2-8ea236e7.jpeg" alt="new kitchen" width="413" height="492" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-picture cs-picture-2">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port5-8b4470a9.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port5-b57a956b.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port5-504afe20.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port5-52fee9fc.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port5-ec470ac9.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port5-d407f328.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port5-0ddb6260.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port5-04cd8182.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port5-4612db23.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port5-4612db23.jpeg" alt="apartment addition" width="413" height="517" loading="lazy" decoding="async">
+                    </picture>
+
+                    <picture class="cs-picture cs-picture-3">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port8-c10b42b4.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port8-21eedb52.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port8-fb6e9aa6.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port8-205221b4.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port8-814c51a5.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port8-20ea5bc6.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port8-3db4b793.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port8-74555534.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port8-c1652447.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port8-c1652447.jpeg" alt="kew kitchen cabinets" width="413" height="629" loading="lazy" decoding="async">
+                    </picture>
+
+                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                </div>
+                <!-- Row 3 -->
+                <div class="cs-row cs-row-3">
+                    <picture class="cs-picture cs-picture-1">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port3-7b637ef5.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port3-0e57b92c.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port3-bb21c506.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port3-8a10cd7f.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port3-f97886af.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port3-ec9ac50a.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port3-7512a181.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port3-28628c2c.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port3-940b266f.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port3-940b266f.jpeg" alt="new black window structure" width="413" height="625" loading="lazy" decoding="async">
+                    </picture>
+                    <picture class="cs-picture cs-picture-2">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port6-083941f4.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port6-ee0bae9d.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port6-9ffd7958.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port6-9e8eda65.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port6-e67863d2.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port6-93549f47.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port6-73b6c9f6.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port6-ffb891c4.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port6-045ce5b9.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port6-045ce5b9.jpeg" alt="kitchen rebovation" width="413" height="452" loading="lazy" decoding="async">
+                    </picture>
+
+                    <picture class="cs-picture cs-picture-3">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="/assets/images/port9-4a00e7be.avif" type="image/avif">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port9-a9c6cbdf.webp" type="image/webp">
+                        <source media="(max-width: 600px)" srcset="/assets/images/port9-3205e919.jpeg" type="image/jpeg">
+                        <!--Tablet Image-->
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port9-3ba57af1.avif" type="image/avif">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port9-87a1231c.webp" type="image/webp">
+                        <source media="(max-width: 1024px)" srcset="/assets/images/port9-f55fa676.jpeg" type="image/jpeg">
+                        <!--Desktop Image-->
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port9-429edc30.avif" type="image/avif">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port9-991e2093.webp" type="image/webp">
+                        <source media="(min-width: 1024px)" srcset="/assets/images/port9-4aa3d610.jpeg" type="image/jpeg">
+                        <img src="/assets/images/port9-4aa3d610.jpeg" alt="bathroom renovation" width="413" height="629" loading="lazy" decoding="async">
+                    </picture>
+
+                    <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+                </div>
+            </div>
+            <a href="/project-one/" class="cs-button-solid">View a Project</a>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Reviews                    -->
+    <!-- ============================================ -->
+
+    <section id="reviews-67">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Our Reviews</span>
+                <h2 class="cs-title">
+                    Words From Our Customers
+                </h2>
+                <p class="cs-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet.
+                </p>
+            </div>
+            <ul class="cs-card-group">
+                <!-- Review 1 -->
+                <li class="cs-item">
+                    <img class="cs-item-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/profile.svg" alt="profile picture" width="80" height="80">
+                    <p class="cs-item-text">
+                        Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!
+                    </p>
+                    <div class="cs-info">
+                        <div class="cs-flex-group">
+                            <span class="cs-name">Jon Doe</span>
+                            <span class="cs-desc">Homeowner</span>
+                        </div>
+                        <img class="cs-item-stars" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/stars.svg" alt="stars" width="96" height="16">
+                    </div>
+                </li>
+                <!-- Review 2 -->
+                <li class="cs-item">
+                    <img class="cs-item-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/profile.svg" alt="profile picture" width="80" height="80">
+                    <p class="cs-item-text">
+                        Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget.
+                    </p>
+                    <div class="cs-info">
+                        <div class="cs-flex-group">
+                            <span class="cs-name">Jon Doe</span>
+                            <span class="cs-desc">Homeowner</span>
+                        </div>
+                        <img class="cs-item-stars" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/stars.svg" alt="stars" width="96" height="16">
+                    </div>
+                </li>
+            </ul>
+            <a href="/reviews/" class="cs-button-solid">Read All Reviews</a>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+<!--                     CTA                      -->
+<!-- ============================================ -->
+
+<section id="cta-51">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Contact Us</span>
+            <h2 class="cs-title">Get It Done With Us Today</h2>
+            <p class="cs-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis at sit pellentesque molestie.  Diam, adipiscing ultrices eu turpis gravida.
+            </p>
+            <a href="/contact/" class="cs-button-solid">Get A Free Quote</a>
+        </div>
+    </div>
+    <!-- Background Image-->
+    <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source media="(max-width: 600px)" srcset="/assets/images/cabinets-84c59356.avif" type="image/avif">
+        <source media="(max-width: 600px)" srcset="/assets/images/cabinets-5b544ad7.webp" type="image/webp">
+        <source media="(max-width: 600px)" srcset="/assets/images/cabinets-8b703e33.jpeg" type="image/jpeg">
+        <!--Tablet Image-->
+        <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-9462101e.avif" type="image/avif">
+        <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-d073b0bb.webp" type="image/webp">
+        <source media="(max-width: 1024px)" srcset="/assets/images/cabinets-35c0de81.jpeg" type="image/jpeg">
+        <!--Desktop Image-->
+        <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-ad5fe785.avif" type="image/avif">
+        <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-fe9592bc.webp" type="image/webp">
+        <source media="(min-width: 1024px)" srcset="/assets/images/cabinets-1050f6fb.jpeg" type="image/jpeg">
+        <img src="/assets/images/cabinets-1050f6fb.jpeg" alt="cabinets" width="1920" height="426" loading="lazy" decoding="async">
+    </picture>
+</section>
+
+        </main>
+        <!-- ============================================ -->
+<!--                   Footer                     -->
+<!-- ============================================ -->
+
+<footer id="cs-footer-275">
+    <div class="cs-container">
+        <!-- Logo Group -->
+        <div class="cs-logo-group">
+            <a aria-label="go back to home" class="cs-logo" href="/">
+                <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/logo-light.svg" alt="logo" width="240" height="32">
+            </a>
+            <p class="cs-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum tincidunt vitae velit dolor cras tellus nisl habitant. Consectetur pellentesque dignissim sed amet.
+            </p>
+            <div class="cs-social">
+                <a class="cs-social-link" aria-label="visit google profile" href="https://maps.google.com/?q=Phenix+City+Alabama" target="_blank" rel="noopener">
+                    <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/google.svg" alt="google" width="11" height="11">
+                </a>
+                <a class="cs-social-link" aria-label="visit facebook profile" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                    <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/facebook.svg" alt="facebook" width="6" height="11">
+                </a>
+                <a class="cs-social-link" aria-label="visit instagram profile" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                    <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="/assets/svgs/instagram.svg" alt="instagram" width="11" height="11">
+                </a>
+            </div>
+        </div>
+        <!-- Links -->
+        <ul class="cs-nav">
+            <li class="cs-nav-li">
+                <span class="cs-header">Sitemap</span>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/">Home</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/about/">About</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/reviews/">Reviews</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/blog/">Blog</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/contact/">Contact</a>
+            </li>
+        </ul>
+        <ul class="cs-nav">
+            <li class="cs-nav-li">
+                <span class="cs-header">Projects</span>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/project-one/">Project One</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="/project-two/">Project Two</a>
+            </li>
+        </ul>
+        <!-- Contact Info -->
+        <ul class="cs-contact">
+            <li class="cs-nav-li">
+                <span class="cs-header">Contact</span>
+            </li>
+            <li class="cs-contact-li">
+                <a class="cs-contact-link cs-address" href="https://maps.google.com/?q=Phenix+City+Alabama" target="_blank" rel="noopener">
+                    Serving Phenix City &amp; Surrounding Areas, <br>
+                    Lee · Russell · Macon · Chambers &amp; More, <br>
+                    Phenix City, AL
+                    
+                </a>
+            </li>
+            <li class="cs-contact-li">
+                <a class="cs-contact-link" href="tel:334-520-4179">(334) 520-4179</a>
+            </li>
+            <li class="cs-contact-li">
+                <a class="cs-contact-link" href="mailto:dispatch@coldcommunitynemt.com">dispatch@coldcommunitynemt.com</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+    </body>
+</html>
