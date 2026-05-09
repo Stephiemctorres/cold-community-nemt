@@ -1,0 +1,383 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// CRITICAL PAGE STYLES
+// Above-the-fold and high-priority styles for the home page's landing section.
+// Put the first section of the home page in here, so it loads immediately.
+// The rest of the home page styles in local.css will be deferred and
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- -------------------------- -->
+<---           Hero             -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #hero-143 {
+        position: relative;
+        min-height: clamp(600px, 80vh, 900px);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+
+        .cs-background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 70% center;
+                display: block;
+            }
+        }
+
+        .cs-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.96) 0%,
+                rgba(255, 255, 255, 0.86) 38%,
+                rgba(255, 255, 255, 0.35) 68%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+
+        .cs-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: calc(1280 / 16 * 1rem);
+            margin: 0 auto;
+            padding: clamp(6rem, 12vw, 9rem) calc(24 / 16 * 1rem);
+        }
+
+        .cs-content {
+            max-width: calc(620 / 16 * 1rem);
+            text-align: left;
+        }
+
+        .cs-topper {
+            display: block;
+            margin-bottom: calc(16 / 16 * 1rem);
+            color: #0f8f91;
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .cs-title {
+            margin: 0 0 calc(20 / 16 * 1rem);
+            color: #062b4f;
+            font-size: clamp(2.5rem, 6vw, 4.75rem);
+            line-height: 1.05;
+            font-weight: 900;
+            max-width: calc(720 / 16 * 1rem);
+        }
+
+        .cs-text,
+        .cs-availability {
+            margin: 0 0 calc(16 / 16 * 1rem);
+            color: #1d2939;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            line-height: 1.6;
+            max-width: calc(560 / 16 * 1rem);
+        }
+
+        .cs-availability {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    background: rgba(6, 43, 79, 0.75);
+    padding: calc(10 / 16 * 1rem) calc(16 / 16 * 1rem);
+    border-radius: calc(8 / 16 * 1rem);
+    display: inline-block;
+}
+
+        .cs-button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(14 / 16 * 1rem);
+            margin-top: calc(28 / 16 * 1rem);
+            align-items: center;
+        }
+
+        .cs-button-solid,
+        .cs-phone-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(52 / 16 * 1rem);
+            padding: 0 calc(28 / 16 * 1rem);
+            border-radius: calc(8 / 16 * 1rem);
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .cs-button-solid {
+            background: #0f8f91;
+            color: #fff;
+
+            &:hover {
+                background: #0b7375;
+            }
+        }
+
+.cs-phone-link {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 900;
+    color: #ffffff;
+    background: #0b2d4d;
+    border: 2px solid #0f8f91;
+    border-radius: calc(8 / 16 * 1rem);
+    padding: calc(10 / 16 * 1rem) calc(20 / 16 * 1rem);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+
+    &:hover {
+        background: #0f8f91;
+        border-color: #0f8f91;
+    }
+}
+
+
+/* Tablet / Mobile Layout */
+@media only screen and (max-width: 48rem) {
+    #hero-143 {
+        min-height: 760px;
+        align-items: flex-start;
+
+        .cs-background {
+            img {
+                object-position: 75% center;
+            }
+        }
+
+        .cs-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 255, 255, 0.9) 48%,
+                rgba(255, 255, 255, 0.25) 100%
+            );
+        }
+
+        .cs-container {
+            padding-top: calc(96 / 16 * 1rem);
+        }
+
+        .cs-content {
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .cs-button-group {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .cs-button-solid,
+        .cs-phone-link {
+            width: 100%;
+        }
+    }
+}
+
+/* Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #hero-143 {
+        background: none;
+    }
+
+    #hero-143 .cs-background img {
+        display: block;
+        object-position: 70% center;
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #hero-143 {
+            .cs-overlay {
+                background: linear-gradient(
+                    90deg,
+                    rgba(6, 43, 79, 0.92) 0%,
+                    rgba(6, 43, 79, 0.75) 42%,
+                    rgba(6, 43, 79, 0.2) 100%
+                );
+            }
+
+            .cs-title,
+            .cs-text,
+            .cs-availability,
+            .cs-phone-link {
+                color: #fff;
+            }
+
+            .cs-phone-link {
+                background: transparent;
+                border-color: #0f8f91;
+            }
+        }
+    }
+}
+
+/*-- -------------------------- -->
+<---         Services           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #h-services-143 {
+        /* 40px - 100px */
+        padding: 0 calc(16 / 16 * 1em) clamp(2.5rem, 7.9vw, 6.25rem) calc(16 / 16 * 1rem);
+        position: relative;
+        /* give a higher z index than the hero so it can sit on top */
+        z-index: 10;
+
+        .cs-card-group {
+            width: 100%;
+            max-width: calc(465 / 16 * 1rem);
+            margin: 0 auto 0;
+            /* negative margin pulls it up on top of the hero section */
+            /* -46px to -76px - we're calculating whatever clamp is and multiplying by -1
+            to make the value negative since clamp doesn't work with negative values */
+            margin-top: calc(clamp(5rem, 13vw, 4.75rem) * -1);
+            /* 40px - 60px top and bottom, 16px - 44px left & right */
+            padding: clamp(2.5rem, 4.7vw, 3.75rem) clamp(1rem, 5.3vw, 2.75rem);
+            box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
+            border-radius: calc(5 / 16 * 1rem);
+            border-top: 8px solid var(--primary);
+            background-color: #fff;
+            /* prevents padding and border from affecting height and width */
+            box-sizing: border-box;
+        }
+
+        .cs-item {
+            list-style: none;
+            margin: 0 auto calc(32 / 16 * 1rem);
+            width: 100%;
+            max-width: calc(360 / 16 * 1rem);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-icon {
+            /* 68px - 88px */
+            width: clamp(4.25rem, 8.8vw, 5.5rem);
+            /* 68px - 88px */
+            height: clamp(4.25rem, 8.8vw, 5.5rem);
+            margin: auto;
+            /* 20px - 24px */
+            margin-bottom: clamp(1.25rem, 5vw, 1.5rem);
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                /* 44px - 52px */
+                width: clamp(2.75rem, 5.8vw, 3.25rem);
+                height: auto;
+            }
+        }
+
+        .cs-title {
+            font-size: calc(20 / 16 * 1rem);
+            line-height: 1.2em;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0 auto calc(8 / 16 * 1rem);
+            color: var(--headerColor);
+        }
+
+        .cs-text {
+            font-size: calc(16 / 16 * 1rem);
+            text-align: center;
+            line-height: 1.5em;
+            max-width: calc(360 / 16 * 1rem);
+            margin: 0 auto;
+            color: var(--bodyTextColor);
+        }
+    }
+}
+
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+    #h-services-143 {
+        .cs-card-group {
+            max-width: calc(784 / 16 * 1rem);
+            /* -76px to -320px - we're calculating whatever clamp is and multiplying by -1
+               to make the value negative since clamp doesn't work with negative values */
+            margin-top: calc(clamp(4.75rem, 20vw, 20rem) * -1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: calc(40 / 16 * 1rem);
+        }
+
+        .cs-item {
+            width: 45%;
+            max-width: calc(314 / 16 * 1rem);
+            &:last-of-type {
+                margin-bottom: calc(32 / 16 * 1rem);
+            }
+        }
+    }
+}
+
+/* Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+    #h-services-143 {
+        .cs-card-group {
+            max-width: calc(1280 / 16 * 1rem);
+            flex-wrap: nowrap;
+        }
+
+        .cs-item {
+            margin: 0;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode {
+        #h-services-143 {
+            .cs-card-group {
+                background: var(--medium);
+            }
+
+            .cs-icon {
+                background: var(--darkTint);
+            }
+
+            .cs-title {
+                color: #fff;
+            }
+
+            .cs-text {
+                color: #fff;
+            }
+        }
+    }

@@ -80,6 +80,7 @@
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+       object-position: 72% center;
   }
   #hero-143 .cs-container {
     width: 100%;
@@ -129,12 +130,15 @@
 /* Desktop - 1300px (To make image background parallax) */
 @media only screen and (min-width: 81.25rem) {
   #hero-143 {
-    background: url("/assets/images/landing.jpg");
+    background-color: #0B2D4D !important;
+    color: #ffffff !important;
+    background: url("/assets/images/COLDCommunityVan.png");
     background-size: cover;
-    background-position: center;
+    background-position: 78% center;
     background-repeat: no-repeat;
     /* makes the parallax effect */
     background-attachment: fixed;
+    min-height: clamp(700px, 90vh, 1000px);
   }
   #hero-143 .cs-background img {
     display: none;

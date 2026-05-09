@@ -12,152 +12,204 @@
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
     #hero-143 {
-        /* Centers button */
-        text-align: center;
-        /* 144px - 300px - leaving extra space for the navigation */
-        padding: clamp(9rem, 25.95vw, 18.75rem) calc(16 / 16 * 1rem) 0;
-        /* 130px - 450px */
-        padding-bottom: clamp(12.125rem, 30.95vw, 28.125rem);
         position: relative;
-        z-index: 1;
-        /* Prevents white rectangle pseudos from overlapping the sections below */
+        min-height: clamp(600px, 80vh, 900px);
         overflow: hidden;
-
-        &:before {
-            /* Left side of the triangle */
-            content: "";
-            width: calc(500 / 16 * 1rem);
-            /* make really long so it covers the whole screen all the way to desktop */
-            height: calc(4000 / 16 * 1rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(-67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: calc(-2235 / 16 * 1rem);
-            /* this makes the right edge sit at the 50% line at all times */
-            right: 50%;
-            z-index: 0;
-        }
-
-        &:after {
-            /* Right side of the triangle */
-            content: "";
-            width: calc(500 / 16 * 1rem);
-            height: calc(4000 / 16 * 1rem);
-            background: #fff;
-            opacity: 1;
-            transform: rotate(67deg);
-            transform-origin: center;
-            position: absolute;
-            display: block;
-            bottom: calc(-2235 / 16 * 1rem);
-            /* this makes the left edge sit at the 50% line at all times */
-            left: 50%;
-            z-index: 0;
-        }
+        display: flex;
+        align-items: center;
+        z-index: 1;
 
         .cs-background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            display: block;
             width: 100%;
             height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -2;
-
-            &:before {
-                /* Overlay */
-                content: "";
-                width: 100%;
-                height: 100%;
-                background: #000;
-                opacity: 0.7;
-                position: absolute;
-                display: block;
-                top: 0;
-                left: 0;
-                z-index: 1;
-                /* prevents the cursor from interacting with it */
-                pointer-events: none;
-            }
 
             img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
+                object-position: 70% center;
+                display: block;
             }
+        }
+
+        .cs-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.96) 0%,
+                rgba(255, 255, 255, 0.86) 38%,
+                rgba(255, 255, 255, 0.35) 68%,
+                rgba(255, 255, 255, 0) 100%
+            );
         }
 
         .cs-container {
+            position: relative;
+            z-index: 3;
             width: 100%;
             max-width: calc(1280 / 16 * 1rem);
-            margin: auto;
+            margin: 0 auto;
+            padding: clamp(6rem, 12vw, 9rem) calc(24 / 16 * 1rem);
+        }
+
+        .cs-content {
+            max-width: calc(620 / 16 * 1rem);
+            text-align: left;
+        }
+
+        .cs-topper {
+            display: block;
+            margin-bottom: calc(16 / 16 * 1rem);
+            color: #0f8f91;
+            font-size: calc(14 / 16 * 1rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         .cs-title {
-            /* 39px - 61px */
-            font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
-            font-weight: 700;
-            line-height: 1.2em;
-            text-align: center;
-            max-width: calc(829 / 16 * 1rem);
-            /* 16px - 24px */
-            margin: 0 auto clamp(1rem, 4vw, 1.5rem);
-            color: #fff;
-            position: relative;
+            margin: 0 0 calc(20 / 16 * 1rem);
+            color: #062b4f;
+            font-size: clamp(2.5rem, 6vw, 4.75rem);
+            line-height: 1.05;
+            font-weight: 900;
+            max-width: calc(720 / 16 * 1rem);
+        }
 
-            &:after {
-                /* Divider Line */
-                content: "";
-                /* 60px - 100px */
-                width: clamp(3.75rem, 9.5vw, 6.25rem);
-                /* 4px - 8px */
-                height: clamp(0.25rem, 0.8vw, 0.5rem);
-                /* 16px - 24px */
-                margin: clamp(1rem, 4vw, 1.5rem) auto clamp(1rem, 4vw, 1.5rem);
-                background: var(--primary);
-                opacity: 1;
-                position: relative;
-                display: block;
+        .cs-text,
+        .cs-availability {
+            margin: 0 0 calc(16 / 16 * 1rem);
+            color: #1d2939;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            line-height: 1.6;
+            max-width: calc(560 / 16 * 1rem);
+        }
+
+        .cs-availability {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    background: rgba(6, 43, 79, 0.75);
+    padding: calc(10 / 16 * 1rem) calc(16 / 16 * 1rem);
+    border-radius: calc(8 / 16 * 1rem);
+    display: inline-block;
+}
+
+        .cs-button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(14 / 16 * 1rem);
+            margin-top: calc(28 / 16 * 1rem);
+            align-items: center;
+        }
+
+        .cs-button-solid,
+        .cs-phone-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(52 / 16 * 1rem);
+            padding: 0 calc(28 / 16 * 1rem);
+            border-radius: calc(8 / 16 * 1rem);
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .cs-button-solid {
+            background: #0f8f91;
+            color: #fff;
+
+            &:hover {
+                background: #0b7375;
             }
         }
 
-        .cs-text {
-            /* 16px - 25px */
-            font-size: clamp(1rem, 1.95vw, 1.5625rem);
-            line-height: 1.5em;
-            text-align: center;
+.cs-phone-link {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 900;
+    color: #ffffff;
+    background: #0b2d4d;
+    border: 2px solid #0f8f91;
+    border-radius: calc(8 / 16 * 1rem);
+    padding: calc(10 / 16 * 1rem) calc(20 / 16 * 1rem);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.2s ease;
+
+    &:hover {
+        background: #0f8f91;
+        border-color: #0f8f91;
+    }
+}
+.cs-phone-link img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+    }
+}
+/* Tablet / Mobile Layout */
+@media only screen and (max-width: 48rem) {
+    #hero-143 {
+        min-height: 760px;
+        align-items: flex-start;
+
+        .cs-background {
+            img {
+                object-position: 75% center;
+            }
+        }
+
+        .cs-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(255, 255, 255, 0.9) 48%,
+                rgba(255, 255, 255, 0.25) 100%
+            );
+        }
+
+        .cs-container {
+            padding-top: calc(96 / 16 * 1rem);
+        }
+
+        .cs-content {
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .cs-button-group {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .cs-button-solid,
+        .cs-phone-link {
             width: 100%;
-            /* 464px - 800px */
-            max-width: clamp(29rem, 60vw, 50rem);
-            margin: 0 auto;
-            /* 40px - 48px */
-            margin-bottom: clamp(2.5rem, 4vw, 3rem);
-            color: #fff;
         }
     }
 }
 
-/* Desktop - 1300px (To make image background parallax) */
+/* Desktop - 1300px */
 @media only screen and (min-width: 81.25rem) {
     #hero-143 {
-        background: url("/assets/images/landing.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        /* makes the parallax effect */
-        background-attachment: fixed;
+        background: none;
+    }
 
-        .cs-background {
-            img {
-                display: none;
-            }
-        }
+    #hero-143 .cs-background img {
+        display: block;
+        object-position: 70% center;
     }
 }
 
@@ -165,15 +217,25 @@
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
         #hero-143 {
-            &:before,
-            &:after {
-                background: var(--dark);
+            .cs-overlay {
+                background: linear-gradient(
+                    90deg,
+                    rgba(6, 43, 79, 0.92) 0%,
+                    rgba(6, 43, 79, 0.75) 42%,
+                    rgba(6, 43, 79, 0.2) 100%
+                );
             }
 
-            .cs-background {
-                &:before {
-                    opacity: 0.85;
-                }
+            .cs-title,
+            .cs-text,
+            .cs-availability,
+            .cs-phone-link {
+                color: #fff;
+            }
+
+            .cs-phone-link {
+                background: transparent;
+                border-color: #0f8f91;
             }
         }
     }
@@ -325,4 +387,3 @@
             }
         }
     }
-}
